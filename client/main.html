@@ -1,0 +1,56 @@
+<head>
+    <title>journoethics</title>
+</head>
+
+<body>
+    <div class="container">
+      {{> table}}
+      <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
+    </div>
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="table">
+  <div id="responsive" class="section scrollspy">
+        <h2 class="header">JornoEthics</h2>
+            <p>Answer each of the statements and compare your response with classmates</p>
+            <table class="bordered responsive-table">
+              <thead>
+                <tr>
+                    <th data-field="question">Question</th>
+                    <th data-field="response">Response</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {{#each questions}}
+                    <tr>{{> question}}</tr>
+                  {{/each}}
+              </tbody>
+            </table>
+          </div>
+</template>
+
+<template name="question">
+    <td>
+      {{text}}
+    </td>
+  <td class="switch_td">
+    {{>switch}}
+  </td>
+</template>
+
+<template name="switch">
+  <!-- Switch -->
+      <div class="switch">
+        <label>
+          Agree
+          <input type="checkbox" onclick="Materialize.toast('Whoo! 100% of your classmates agree with you', 5000)">
+          <span class="lever"></span>
+          Disagree
+        </label>
+      </div>
+</template>
