@@ -5,6 +5,10 @@ import {
     ReactiveVar
 } from 'meteor/reactive-var';
 import './main.html';
+import { Mongo } from 'meteor/mongo';
+
+Answers = new Mongo.Collection("answers");
+Answers.insert({questionNumber: 1, answer: "disagree"});
 
 Template.question.onCreated(function questionOnCreated() {
   // counter starts at 0
@@ -21,8 +25,13 @@ Template.question.events({
   'click .toggle'(event, instance) {
     // increment the counter when button is clicked
     instance.counter.set(instance.counter.get() + 1);
+    var x = template.$('input').is(":checked").val();
+    Session.set("statevalue", x);
+    console.log(Session.get("statevalue"));
   },
 });
+
+
 
 // Template.results.helpers({
 //     topGenresChart: function() {
