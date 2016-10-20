@@ -1,5 +1,5 @@
 <head>
-    <title>journoethics</title>
+    <title>JournoEthics</title>
 </head>
 
 <body>
@@ -9,30 +9,30 @@
     </div>
 </body>
 
-<template name="hello">
+<!-- <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
-</template>
+</template> -->
 
 <template name="table">
   <div id="responsive" class="section scrollspy">
-        <h2 class="header">JornoEthics</h2>
-            <p>Answer each of the statements and compare your response with classmates</p>
-            <table class="bordered">
-              <thead>
-                <tr>
-                    <th data-field="question">No.</th>
-                    <th data-field="question">Question</th>
-                    <th data-field="response">Response</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {{#each questions}}
-                    <tr>{{> question}}</tr>
-                  {{/each}}
-              </tbody>
-            </table>
-          </div>
+    <h2 class="header">JornoEthics</h2>
+        <p>Answer each of the statements and compare your response with classmates</p>
+        <table class="bordered">
+          <thead>
+            <tr>
+                <th data-field="question">No.</th>
+                <th data-field="question">Question</th>
+                <th data-field="response">Response</th>
+            </tr>
+          </thead>
+          <tbody>
+              {{#each questions}}
+                <tr>{{> question}}</tr>
+              {{/each}}
+          </tbody>
+        </table>
+    </div>
 </template>
 
 <template name="question">
