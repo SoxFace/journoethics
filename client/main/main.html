@@ -37,21 +37,21 @@
 </template>
 
 <template name="question">
-    <td>{{number}}</td>
+    <td>{{questionNumber}}</td>
     <td>
-      {{text}}
+      <h5 class="{{questionNumber}}">{{text}}</h5>
     </td>
   <td class="switch_td">
     <div class="switch">
       <label>
         Agree
-        <input type="checkbox" class="toggle">
+        <input type="checkbox" class="toggle" id="{{questionNumber}}">
         <span class="lever"></span>
         Disagree
       </label>
     </div>
   </td>
   <td>
-    <h6>{{counter}} / <span class="teal-text lighten-3">{{counter}}</span></h6>
+    <h6 id=" agree_{{questionNumber}}">{{counter}} / <span class="teal-text lighten-3" id="disagree_{{questionNumber}}">{{counter}}</span></h6>
   </td>
 </template>

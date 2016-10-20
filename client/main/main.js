@@ -20,7 +20,6 @@ Template.question.helpers({
 Template.question.events({
   'click .toggle'(event, instance) {
     // increment the counter when button is clicked
-    console.log("toggle")
     instance.counter.set(instance.counter.get() + 1);
   },
 });
