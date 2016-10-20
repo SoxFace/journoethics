@@ -21,6 +21,7 @@
             <table class="bordered">
               <thead>
                 <tr>
+                    <th data-field="question">No.</th>
                     <th data-field="question">Question</th>
                     <th data-field="response">Response</th>
                 </tr>
@@ -35,6 +36,7 @@
 </template>
 
 <template name="question">
+    <td>{{number}}</td>
     <td>
       {{text}}
     </td>
