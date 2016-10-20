@@ -42,25 +42,16 @@
       {{text}}
     </td>
   <td class="switch_td">
-    {{>switch}}
+    <div class="switch">
+      <label>
+        Agree
+        <input type="checkbox" class="toggle" onclick="Materialize.toast('Whoo! 100% of your classmates agree with you', 5000)">
+        <span class="lever"></span>
+        Disagree
+      </label>
+    </div>
   </td>
   <td>
-    {{> results}}
+    <h6>{{counter}} / <span class="teal-text lighten-3">{{counter}}</span></h6>
   </td>
-</template>
-
-<template name="switch">
-  <!-- Switch -->
-      <div class="switch">
-        <label>
-          Agree
-          <input type="checkbox" onclick="Materialize.toast('Whoo! 100% of your classmates agree with you', 5000)">
-          <span class="lever"></span>
-          Disagree
-        </label>
-      </div>
-</template>
-
-<template name="results">
-  <h6>30 / <span class="teal-text lighten-3">80</span></h6>
 </template>

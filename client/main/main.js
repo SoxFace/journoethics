@@ -6,92 +6,90 @@ import {
 } from 'meteor/reactive-var';
 import './main.html';
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
-//
-// Template.hello.helpers({
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-// });
-//
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });
-
-// async loader for fonts
-// https://github.com/typekit/webfontloader
-
-Template.results.helpers({
-    topGenresChart: function() {
-        return {
-            chart: {
-                backgroundColor: null,
-                renderTo: 'container',
-                type: 'bar'
-            },
-            title: {
-                text: ''
-            },
-            xAxis: {
-                gridLineWidth: 0,
-                enabled: false,
-                lineWidth: -1,
-                categories: [''],
-                labels: {
-                    enabled: false
-                }
-            },
-            yAxis: {
-                enabled: false,
-                gridLineWidth: 0,
-                lineWidth: 0,
-                min: 0,
-                title: {
-                    text: '',
-                    margin: 0
-                },
-                labels: {
-                    enabled: false
-                }
-            },
-            legend: {
-                enabled: false,
-            },
-            tooltip: {
-                formatter: function() {
-                    return '' +
-                        this.series.name + ': ' + this.y + '';
-                }
-            },
-            credits: {
-                enabled: false,
-                position: {
-                    align: 'left',
-                    x: 10
-                }
-            },
-            plotOptions: {
-                series: {
-                    stacking: 'normal'
-                }
-            },
-            series: [{
-                name: 'Disagree',
-                data: [50]
-            }, {
-                name: 'Agree',
-                data: [4]
-            }],
-            exporting: {
-                enabled: false
-            }
-        }
-        $('.highcharts-axis').css('display','none');
-    }
+Template.question.onCreated(function questionOnCreated() {
+  // counter starts at 0
+  this.counter = new ReactiveVar(0);
 });
+
+Template.question.helpers({
+  counter() {
+    return Template.instance().counter.get();
+  },
+});
+
+Template.question.events({
+  'click .toggle'(event, instance) {
+    // increment the counter when button is clicked
+    console.log("toggle")
+    instance.counter.set(instance.counter.get() + 1);
+  },
+});
+
+// Template.results.helpers({
+//     topGenresChart: function() {
+//         return {
+//             chart: {
+//                 backgroundColor: null,
+//                 renderTo: 'container',
+//                 type: 'bar'
+//             },
+//             title: {
+//                 text: ''
+//             },
+//             xAxis: {
+//                 gridLineWidth: 0,
+//                 enabled: false,
+//                 lineWidth: -1,
+//                 categories: [''],
+//                 labels: {
+//                     enabled: false
+//                 }
+//             },
+//             yAxis: {
+//                 enabled: false,
+//                 gridLineWidth: 0,
+//                 lineWidth: 0,
+//                 min: 0,
+//                 title: {
+//                     text: '',
+//                     margin: 0
+//                 },
+//                 labels: {
+//                     enabled: false
+//                 }
+//             },
+//             legend: {
+//                 enabled: false,
+//             },
+//             tooltip: {
+//                 formatter: function() {
+//                     return '' +
+//                         this.series.name + ': ' + this.y + '';
+//                 }
+//             },
+//             credits: {
+//                 enabled: false,
+//                 position: {
+//                     align: 'left',
+//                     x: 10
+//                 }
+//             },
+//             plotOptions: {
+//                 series: {
+//                     stacking: 'normal'
+//                 }
+//             },
+//             series: [{
+//                 name: 'Disagree',
+//                 data: [50]
+//             }, {
+//                 name: 'Agree',
+//                 data: [4]
+//             }],
+//             exporting: {
+//                 enabled: false
+//             }
+//         }
+//         $('.highcharts-axis').css('display','none');
+//     }
+// });
