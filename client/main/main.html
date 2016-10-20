@@ -21,9 +21,10 @@
         <table class="bordered">
           <thead>
             <tr>
-                <th data-field="question">No.</th>
+                <th data-field="no">No.</th>
                 <th data-field="question">Question</th>
                 <th data-field="response">Response</th>
+                <th data-field="results">Results</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +44,9 @@
   <td class="switch_td">
     {{>switch}}
   </td>
+  <td>
+    {{> results}}
+  </td>
 </template>
 
 <template name="switch">
@@ -55,4 +59,8 @@
           Disagree
         </label>
       </div>
+</template>
+
+<template name="results">
+  <h6>30 / <span class="teal-text lighten-3">80</span></h6>
 </template>

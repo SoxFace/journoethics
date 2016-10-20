@@ -1,5 +1,9 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import {
+    Template
+} from 'meteor/templating';
+import {
+    ReactiveVar
+} from 'meteor/reactive-var';
 import './main.html';
 
 // Template.hello.onCreated(function helloOnCreated() {
@@ -23,20 +27,71 @@ import './main.html';
 // async loader for fonts
 // https://github.com/typekit/webfontloader
 
-Meteor.startup(function() {
-
-  WebFontConfig = {
-    google: { families: [ 'Roboto Slab:700,400:latin', 'Oswald:400', 'Mouse Memoirs' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-    console.log("async fonts loaded", WebFontConfig);
-  })();
-
-})
+Template.results.helpers({
+    topGenresChart: function() {
+        return {
+            chart: {
+                backgroundColor: null,
+                renderTo: 'container',
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                gridLineWidth: 0,
+                enabled: false,
+                lineWidth: -1,
+                categories: [''],
+                labels: {
+                    enabled: false
+                }
+            },
+            yAxis: {
+                enabled: false,
+                gridLineWidth: 0,
+                lineWidth: 0,
+                min: 0,
+                title: {
+                    text: '',
+                    margin: 0
+                },
+                labels: {
+                    enabled: false
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            tooltip: {
+                formatter: function() {
+                    return '' +
+                        this.series.name + ': ' + this.y + '';
+                }
+            },
+            credits: {
+                enabled: false,
+                position: {
+                    align: 'left',
+                    x: 10
+                }
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [{
+                name: 'Disagree',
+                data: [50]
+            }, {
+                name: 'Agree',
+                data: [4]
+            }],
+            exporting: {
+                enabled: false
+            }
+        }
+        $('.highcharts-axis').css('display','none');
+    }
+});
