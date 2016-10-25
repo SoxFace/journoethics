@@ -21,10 +21,10 @@
         <table class="bordered">
           <thead>
             <tr>
-                <th data-field="no">No.</th>
+                <th data-field="number">No.</th>
                 <th data-field="question">Question</th>
                 <th data-field="response">Response</th>
-                <th data-field="results">Results</th>
+                <th data-field="vote">Votes</th>
             </tr>
           </thead>
           <tbody>
@@ -44,14 +44,14 @@
   <td class="switch_td">
     <div class="switch">
       <label>
-        Agree
-        <input type="checkbox" class="toggle" id="{{questionNumber}}">
-        <span class="lever"></span>
         Disagree
+        <input type="checkbox" class="toggle" id="response_{{questionNumber}}">
+        <span class="lever"></span>
+        Agree
       </label>
     </div>
   </td>
   <td>
-    <h6 id=" agree_{{questionNumber}}">{{counter}} / <span class="teal-text lighten-3" id="disagree_{{questionNumber}}">{{counter}}</span></h6>
+    <h6 id="disagree_{{questionNumber}}">{{disagreeCounter}} / <span class="teal-text lighten-3" id="agree_{{questionNumber}}">{{agreeCounter}}</span></h6>
   </td>
 </template>

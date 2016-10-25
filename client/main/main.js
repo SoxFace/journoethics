@@ -5,29 +5,41 @@ import {
     ReactiveVar
 } from 'meteor/reactive-var';
 import './main.html';
-import { Mongo } from 'meteor/mongo';
+import {
+    Mongo
+} from 'meteor/mongo';
 
 Template.question.onCreated(function questionOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+    // counter starts at 0
+    this.agreeCounter = new ReactiveVar(0);
+    this.disagreeCounter = new ReactiveVar(0);
 });
 
 Template.question.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+    agreeCounter() {
+        return Template.instance().agreeCounter.get();
+    },
+    disagreeCounter() {
+        return Template.instance().disagreeCounter.get();
+    }
 });
 
 Template.question.events({
-  'click .toggle'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-    var x = template.$('input').is(":checked").val();
-    Session.set("statevalue", x);
-    console.log(Session.get("statevalue"));
-  },
-});
+    'change input': function(event, instance) {
+        // increment the counter when button is clicked
+        var agree = event.target.checked;
+        var disagree = event.target.unchecked;
 
+        if (agree === true) {
+          instance.agreeCounter.set(instance.agreeCounter.get() + 1);
+        } else {
+          instance.disagreeCounter.set(instance.disagreeCounter.get() + 1);
+        }
+
+        Session.set("statevalue", agree, disagree);
+        console.log(Session.get("statevalue"));
+    }
+});
 
 
 // Template.results.helpers({
