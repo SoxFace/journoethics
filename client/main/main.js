@@ -32,13 +32,25 @@ Template.question.events({
 
         if (agree === true) {
           instance.agreeCounter.set(instance.agreeCounter.get() + 1);
-        } else {
+        }
+
+        if (agree !== true) {
           instance.disagreeCounter.set(instance.disagreeCounter.get() + 1);
         }
 
         Session.set("statevalue", agree, disagree);
         console.log(Session.get("statevalue"));
+        console.log("Answers to question")
     }
+});
+
+UI.registerHelper('indexedArray', function(context, options) {
+  if (context) {
+    return context.map(function(item, index) {
+      item._index = index;
+      return item;
+    });
+  }
 });
 
 

@@ -28,8 +28,8 @@
             </tr>
           </thead>
           <tbody>
-              {{#each questions}}
-                <tr>{{> question}}</tr>
+              {{#each indexedArray questions}}
+                <tr data-id="{{ _index }}">{{> question}}</tr>
               {{/each}}
           </tbody>
         </table>
