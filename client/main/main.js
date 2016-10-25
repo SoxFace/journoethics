@@ -28,7 +28,6 @@ Template.question.events({
     'change input': function(event, instance) {
         // increment the counter when button is clicked
         var agree = event.target.checked;
-        var disagree = event.target.unchecked;
 
         if (agree === true) {
           instance.agreeCounter.set(instance.agreeCounter.get() + 1);
@@ -38,11 +37,17 @@ Template.question.events({
           instance.disagreeCounter.set(instance.disagreeCounter.get() + 1);
         }
 
-        Session.set("statevalue", agree, disagree);
+        Session.set("statevalue", agree);
         console.log(Session.get("statevalue"));
-        console.log("Answers to question")
     }
 });
+
+Template.table.events({
+  'click #vote': function(event) {
+    event.preventDefault();
+    console.log("this will save all votes into the collection");
+  }
+})
 
 UI.registerHelper('indexedArray', function(context, options) {
   if (context) {

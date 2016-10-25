@@ -5,7 +5,6 @@
 <body>
     <div class="container">
       {{> table}}
-      <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
     </div>
 </body>
 
@@ -29,11 +28,12 @@
           </thead>
           <tbody>
               {{#each indexedArray questions}}
-                <tr data-id="{{ _index }}">{{> question}}</tr>
+                <tr class="questionRow" data-id="{{ _index }}">{{> question}}</tr>
               {{/each}}
           </tbody>
         </table>
     </div>
+    <button class="btn-large waves-effect waves-light" type="submit" id="vote" name="action" onclick="Materialize.toast('Thanks for voting', 4000)">Submit</button>
 </template>
 
 <template name="question">
