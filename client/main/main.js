@@ -28,6 +28,8 @@ Template.question.events({
     'change input': function(event, instance) {
         // increment the counter when button is clicked
         var agree = event.target.checked;
+        // var questionNumber = $('.toggle').attr("id");
+        var questionNumber = event.target.id;
 
         if (agree === true) {
           instance.agreeCounter.set(instance.agreeCounter.get() + 1);
@@ -38,6 +40,7 @@ Template.question.events({
         }
 
         Session.set("statevalue", agree);
+        console.log(questionNumber);
         console.log(Session.get("statevalue"));
     }
 });
