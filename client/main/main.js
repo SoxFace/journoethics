@@ -7,9 +7,6 @@ import {
 import './main.html';
 import { Mongo } from 'meteor/mongo';
 
-Answers = new Mongo.Collection("answers");
-Answers.insert({questionNumber: 1, answer: "disagree"});
-
 Template.question.onCreated(function questionOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
