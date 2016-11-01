@@ -1,0 +1,32 @@
+<head>
+    <title>JournoEthics</title>
+</head>
+
+<body>
+    <div class="container">
+      {{> results}}
+    </div>
+</body>
+
+<template name="results">
+  <div id="responsive" class="section scrollspy">
+    <h2 class="header">JornoEthics</h2>
+        <p>Answer each of the statements and compare your response with classmates</p>
+        <table class="bordered">
+          <thead>
+            <tr>
+                <th data-field="number">No.</th>
+                <th data-field="question">Question</th>
+                <th data-field="response">Response</th>
+                <th data-field="vote">Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+              {{#each indexedArray questions}}
+                <tr class="questionRow" data-id="{{ _index }}">{{> question}}</tr>
+              {{/each}}
+          </tbody>
+        </table>
+    </div>
+    <button class="btn-large waves-effect waves-light" type="submit" id="vote" name="action" onclick="Materialize.toast('Thanks for voting', 4000)">Submit</button>
+</template>

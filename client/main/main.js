@@ -49,6 +49,7 @@ Template.table.events({
   'click #vote': function(event) {
     event.preventDefault();
     console.log("this will save all votes into the collection");
+    // TODO persist userID, question no and answer to votes collection
   }
 })
 
